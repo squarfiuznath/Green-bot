@@ -214,9 +214,7 @@ module.exports = {
                     .addField("Il vous manque des pemissions...", ` \`\`\`diff\n\`${permission}\`\`\`\` Veuillez demander à un Administateur ces permissions.  `)
                     .setFooter(footer)
                     .setColor(config.color);
-                    message.channel.send(reportEmbed);
-                    return;
-
+                    return message.channel.send(reportEmbed);
                 };
             };
         };
