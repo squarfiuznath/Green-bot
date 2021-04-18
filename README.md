@@ -18,7 +18,7 @@ Vous êtes libre d'ajouter une étoile ⭐ pour promouvoir le projet !
 
 ### Un magnifique site
 
-Green bot a un magnifique dashboard qui offre plein de fonctionnalitées! Le dashboard est fait avec express et EJS!
+Green bot a un magnifique dashboard qui offre plein de fonctionnalités! Le dashboard est fait avec express js et EJS!
 
 
 <img align="left" style="float: centrer; margin: 0 10px 0 0;" src="https://cdn.discordapp.com/attachments/795737641559523328/829707973626429471/unknown.png"/>
