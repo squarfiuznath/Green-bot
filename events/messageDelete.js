@@ -29,50 +29,32 @@ if(!message) return;
                 const reportEmbed = new Discord.MessageEmbed()
 
                 .setAuthor(`Message supprimé`, 'https://vegibit.com/wp-content/uploads/2018/01/How-To-Delete-A-Record-From-The-Database.png')
-                    .setDescription(`un message de ${message.author} a été supprimé dans le salon ${message.channel} `)
-
+                .setDescription(`un message de ${message.author} a été supprimé dans le salon ${message.channel} `)
                 .addField("Message", message)
-
-
                 .setFooter(message.client.footer)
-
                 .setColor("#982318");
-                logchannel.send(reportEmbed);
-                return;
+                return logchannel.send(reportEmbed);
             }
 
-
             const { executor, target } = deletionLog;
-
 
             if (target) {
                 if (target.id === message.author.id) {
                     const reportEmbed = new Discord.MessageEmbed()
-                        .setAuthor(`Message supprimé`, 'https://vegibit.com/wp-content/uploads/2018/01/How-To-Delete-A-Record-From-The-Database.png')
-                        .setDescription(`${executor} a supprimé 1 message de ${message.author} dans le salon ${message.channel} `)
-
+                    .setAuthor(`Message supprimé`, 'https://vegibit.com/wp-content/uploads/2018/01/How-To-Delete-A-Record-From-The-Database.png')
+                    .setDescription(`${executor} a supprimé 1 message de ${message.author} dans le salon ${message.channel} `)
                     .addField("Message", message)
-
-
                     .setFooter(message.client.footer)
-
                     .setColor("#982318");
-                    logchannel.send(reportEmbed);
-                    return;
+                    return logchannel.send(reportEmbed);
                 } else {
                     const reportEmbed = new Discord.MessageEmbed()
-                        .setAuthor(`Message supprimé`, 'https://vegibit.com/wp-content/uploads/2018/01/How-To-Delete-A-Record-From-The-Database.png')
-
+                    .setAuthor(`Message supprimé`, 'https://vegibit.com/wp-content/uploads/2018/01/How-To-Delete-A-Record-From-The-Database.png')
                     .setDescription(` ${message.author} a supprimé son message dans le salon ${message.channel} `)
-
                     .addField("Message", message)
-
-
                     .setFooter(message.client.footer)
-
                     .setColor("#982318");
-                    logchannel.send(reportEmbed);
-                    return;
+                    return logchannel.send(reportEmbed);
                 }
             }
         }
