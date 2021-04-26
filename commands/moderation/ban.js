@@ -22,10 +22,7 @@ module.exports = {
 
         // If the user is already banned
         const banned = await message.guild.fetchBans();
-        if (banned.some((m) => m.user.id === user.id)) {
-            return message.errorMessage(`${user.user.tag} est déja dans la liste des bannisements de ce serveur !`)
-
-        }
+        if (banned.some((m) => m.user.id === user.id)) return message.errorMessage(`${user.user.tag} est déja dans la liste des bannisements de ce serveur !`)
 
         // Gets the ban reason
         let reason = args.slice(1).join(" ");
@@ -37,34 +34,20 @@ module.exports = {
         if (member) {
             const memberPosition = member.roles.highest.position;
             const moderationPosition = message.member.roles.highest.position;
-            if (message.guild.ownerID !== message.author.id && !(moderationPosition > memberPosition)) {
-                return message.errorMessage(`Cette personne est plus haute que vous dans la hiérachie !`)
+            if (message.guild.ownerID !== message.author.id && !(moderationPosition > memberPosition)) return message.errorMessage(`Cette personne est plus haute que vous dans la hiérachie !`)
 
-            }
-            if (!member.bannable) {
-                return message.errorMessage(`Le bot n'est pas assez haut dans la hiérarchie pour bannir cet utilisateur !`)
-            }
+            if (!member.bannable) return message.errorMessage(`Le bot n'est pas assez haut dans la hiérarchie pour bannir cet utilisateur !`)
         }
 
         await user.send(`Bonjour **${user.user.tag}**, Vous avez été banni de **${message.guild.name}** pour la raison **${reason}**.`).catch(() => {});
 
         // Ban the user
         message.guild.members.ban(user, { reason }).then(() => {
-
             // Send a success message in the current channel
             return message.succesMessage(`J'ai bien banni ${user.user.tag} du serveur .`);
-
-
-
-
-
         }).catch((err) => {
             console.log(err);
             return message.errorMessage(`Le bot n'a pas la permission de bannir des membres !`)
         });
-
-
-
-
     },
 };
